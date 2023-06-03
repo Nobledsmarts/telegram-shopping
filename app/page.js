@@ -8,9 +8,7 @@ const products = getData();
 export default function Home() {
   return (
     <>
-        <Button title={'add'} disable={false} type={'add'}/>
-        <Button title={'remove'} disable={false} type={'remove'}/>
-        <Button title={'chekout'} disable={false} type={'checkout'}/>
+        <h1 className='heading'>Order Food</h1>
         <div className='card__container'>
             {
                 products.map((product) => <Card product={product}/>)
