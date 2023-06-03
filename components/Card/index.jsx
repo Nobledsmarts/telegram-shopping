@@ -4,16 +4,18 @@ import Image from 'next/image';
 import Button from '@/components/Button'
 import './Card.css'
 
-const Card = ({product}) => {
+const Card = ({product, onAdd, onRemove}) => {
     const [count, setCount] = useState(0);
     const { image, title, price, id } = product; 
 
     const handleIncrement = () => {
         setCount(count + 1);
+        onAdd(food);
     }
 
     const handleDecrement = () => {
         setCount(count - 1);
+        onRemove(food);
     }
 
     return (
