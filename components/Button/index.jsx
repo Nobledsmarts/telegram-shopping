@@ -1,7 +1,7 @@
 import React from 'react'
 import './Button.css'
 
-export default ({type, title, disable, onClick}) => {
+const Button = ({type, title, disable, onClick}) => {
   return (
     <button 
         className={`btn ${
@@ -16,3 +16,5 @@ export default ({type, title, disable, onClick}) => {
     </button>
   )
 }
+
+export default Button
