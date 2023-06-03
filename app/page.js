@@ -14,11 +14,15 @@ export default function Home() {
     const [cartItems, setcartItems] = useState([]);
 
     const onAdd = (product) => {
+        
+        console.log(product);
+        console.log(cartItems);
+
         const productExist = cartItems.find((item) => item.id == product.id);
+        const productExistIndex = cartItems.findIndex((item) => item.id == product.id);
+        
         if(productExist){
-            setcartItems(cartItems.map(item => {
-                item.id == product.id ? {...productExist, quantity: productExist.quantity + 1} : item
-            }))
+            setcartItems([...cartItems,  { ...productExist, quantity : cartItems[productExistIndex].quantity + 1 }]);
         } else {
             setcartItems([...cartItems, {...product, quantity : 1 }])
         }
@@ -41,7 +45,7 @@ export default function Home() {
             <Cart cartItems={cartItems} />
             <div className='card__container'>
                 {
-                    products.map((product) => <Card product={product} onAdd={onAdd} onRemove={onRemove}/>)
+                    products.map((product, id) => <Card key={id} product={product} onAdd={onAdd} onRemove={onRemove}/>)
                 }
             </div>
         </>

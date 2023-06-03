@@ -10,12 +10,12 @@ const Card = ({product, onAdd, onRemove}) => {
 
     const handleIncrement = () => {
         setCount(count + 1);
-        onAdd(food);
+        onAdd(product);
     }
 
     const handleDecrement = () => {
         setCount(count - 1);
-        onRemove(food);
+        onRemove(product);
     }
 
     return (
