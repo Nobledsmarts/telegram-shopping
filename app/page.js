@@ -11,9 +11,11 @@ export default function Home() {
         <Button title={'add'} disable={false} type={'add'}/>
         <Button title={'remove'} disable={false} type={'remove'}/>
         <Button title={'chekout'} disable={false} type={'checkout'}/>
-        {
-            products.map((product) => <Card product={product}/>)
-        }
+        <div className='card__container'>
+            {
+                products.map((product) => <Card product={product}/>)
+            }
+        </div>
     </>
   )
 }

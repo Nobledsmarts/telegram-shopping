@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image';
 import Button from '@/components/Button'
+import './Card.css'
 
 const Card = ({product}) => {
     const [count, setCount] = useState(0);
@@ -11,14 +12,14 @@ const Card = ({product}) => {
         setCount(count + 1);
     }
 
-    const decrementIncrement = () => {
-        setCount(count + 1);
+    const handleDecrement = () => {
+        setCount(count - 1);
     }
 
     return (
         <div className='card'>
             <span 
-                className={`${count !== 0 ? 'card_badge' : 'card__badge--hidden'}`}
+                className={`${count !== 0 ? 'card__badge' : 'card__badge--hidden'}`}
             >
             {count}
             </span>
@@ -28,10 +29,10 @@ const Card = ({product}) => {
             <h4 className='card__title'>
                 {title} . <span className='card__price'>{price}</span>
             </h4>
-            <div className='btn-conta'>
+            <div className='btn-container'>
                 <Button title={'+'} type={'add'} onClick={handleIncrement}/>
                 {
-                    count && <Button title={'-'} type={'remove'} onClick={handleIncrement}/>
+                    count ? (<Button title={'-'} type={'remove'} onClick={handleDecrement}/>) : ""
                 }
             </div>
         </div>
