@@ -1,7 +1,7 @@
 import React from 'react'
 import './Button.css'
 
-export const Button = ({type, title, disable, onClick}) => {
+export default ({type, title, disable, onClick}) => {
   return (
     <button 
         className={`btn ${
