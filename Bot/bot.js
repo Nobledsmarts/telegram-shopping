@@ -12,4 +12,4 @@ bot.start((ctx) => ctx.reply('Welcome 👍', {
 // bot.hears('hi', (ctx) => ctx.reply('Hey there'));
 bot.launch();
 
-// console.log("working")
+console.log("hello from bot")
