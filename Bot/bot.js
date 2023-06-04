@@ -1,11 +1,18 @@
 const { Telegraf } = require('telegraf');
 const { message } = require('telegraf/filters');
+require('dotenv').config();
 
 try {
-    require('dotenv').config()
-    const bot = new Telegraf(process.env.BOT_TOKEN);
+    const { BOT_TOKEN, APP_URL } = process.env;
+    const bot = new Telegraf(env.BOT_TOKEN);
     bot.start((ctx) => ctx.reply('Welcome 👍...', {
-        text : "web app"
+      reply_markup: {
+        keyboard: [[{
+            text : "web app", web_app : {
+                url : APP_URL
+            }
+        }]]
+      }
     }));
     // bot.help((ctx) => ctx.reply('Send me a sticker'));
     // bot.on(message('sticker'), (ctx) => ctx.reply('👍'));
