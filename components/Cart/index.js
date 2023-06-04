@@ -3,7 +3,6 @@ import './Cart.css'
 import Button from '@/components/Button'
 
 const Cart = ({ cartItems, onAdd, onRemove }) => {
-    console.log(cartItems);
     const totalPrice = cartItems.reduce((initialValue, items) => initialValue + items.price * items.quantity, 0)
     return (
         <div className='cart__container'>

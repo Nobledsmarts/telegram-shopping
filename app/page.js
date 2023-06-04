@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect, useCallback, useLayoutEffect } from 'react'
 import Image from 'next/image'
 import Button  from '@/components/Button'
 import Card from '@/components/Card'
@@ -7,10 +7,32 @@ import Cart from '@/components/Cart'
 
 import { getData } from '@/model/products'
 import { Fanwood_Text } from 'next/font/google'
+import Script from 'next/script'
+import Head from 'next/head'
+
 
 const products = getData();
 
+// const telegram = window.Telegram?.WebApp;
+
 export default function Home() {
+    const [webapp, setWebApp] = useState();
+    
+    useLayoutEffect(() => {
+        if(!webapp){
+            setWebApp(() => window.Telegram);
+           return () =>  webapp.ready();
+        } else {
+            
+        }
+    },[]);
+    
+    // useEffect(() => {
+    //     if()
+    // });
+    
+    
+
     const [cartItems, setcartItems] = useState([]);
 
     const onAdd = (product) => {
@@ -36,9 +58,13 @@ export default function Home() {
         }
     }
 
+    // const onCheckO
+
     return (
         <>
+           
             <h1 className='heading'>Order Food</h1>
+            { JSON.stringify(webapp) }
             <Cart cartItems={cartItems} />
             <div className='card__container'>
                 {
