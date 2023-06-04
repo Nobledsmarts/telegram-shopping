@@ -18,7 +18,7 @@ export default function Home() {
     
     useLayoutEffect(() => {
         if(!telegram){
-            setTelegram(() => window.Telegram.webApp);
+            setTelegram(() => window.Telegram.WebApp);
             return () => { telegram.ready() };
         }
     },[]);
