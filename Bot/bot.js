@@ -1,9 +1,6 @@
 const { Telegraf } = require('telegraf');
 const { message } = require('telegraf/filters');
 
-
-
-
 try {
     require('dotenv').config()
     const bot = new Telegraf(process.env.BOT_TOKEN);
