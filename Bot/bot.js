@@ -1,18 +1,18 @@
 const { Telegraf } = require('telegraf');
-// const { message } = require('telegraf/filters');
+const { message } = require('telegraf/filters');
 require('dotenv').config();
 
 try {
     const { BOT_TOKEN, APP_URL } = process.env;
     const bot = new Telegraf(BOT_TOKEN);
-    bot.hears('test', (ctx) => ctx.reply("Hello there"));
+    // bot.hears('/tester', (ctx) => ctx.reply("Hello there"));
     // bot.hears('/test', (ctx) => ctx.reply("Hello there"));
 
-    bot.command('/test', async (ctx) => await ctx.reply("Hello there from command"));
 
-    bot.on(message('/testing'), ctx => ctx.reply('testing command'));
+    bot.command('login', (ctx) => ctx.reply("Hello there from command"));
+
+    // bot.on(message('text'), )
     // bot.hears('/test', (ctx) => ctx.reply("Hello there"));
-
     bot.start((ctx) => ctx.reply('Welcome 👍', {
       reply_markup: {
         keyboard: [[{
@@ -22,12 +22,21 @@ try {
         }]]
       }
     }));
+    
+    bot.on(message('text'), async (ctx) => {
+        ctx.reply(ctx.update.message.text);
+    },);
+      
     // bot.help((ctx) => ctx.reply('Send me a sticker'));
-    // bot.on(message('sticker'), (ctx) => ctx.reply('👍'));
+    bot.on(message('sticker'), (ctx) => ctx.reply('👍'));
     // bot.hears('hi', (ctx) => ctx.reply('Hey there'));
     bot.launch();
+
+    process.once('SIGINT', () => bot.stop('SIGINT'));
+    process.once('SIGTERM', () => bot.stop('SIGTERM'));
 } catch (err){
-    console.log('error connecting to bot');
+    console.log(err);
+    console.log('error connecting to bot: ', err.message);
 }
 
 console.log("hello from bot")
