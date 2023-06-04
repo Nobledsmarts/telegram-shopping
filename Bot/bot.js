@@ -9,6 +9,8 @@ try {
     bot.hears('/test', (ctx) => ctx.reply("Hello there"));
 
     bot.command('test', async (ctx) => await ctx.reply("Hello there from command"));
+
+    bot.on(message('/test'), ctx => ctx.reply('testing command'));
     // bot.hears('/test', (ctx) => ctx.reply("Hello there"));
 
     bot.start((ctx) => ctx.reply('Welcome 👍', {
