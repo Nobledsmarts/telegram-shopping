@@ -13,7 +13,7 @@ try {
 
     // bot.on(message('text'), )
     // bot.hears('/test', (ctx) => ctx.reply("Hello there"));
-    bot.start((ctx) => ctx.reply('Welcome 👍', {
+    bot.start((ctx) => ctx.reply('Welcome to Telegram Shopping', {
       reply_markup: {
         keyboard: [[{
             text : "Open Telegram Shopping", web_app : {
