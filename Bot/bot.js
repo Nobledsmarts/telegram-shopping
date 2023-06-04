@@ -6,7 +6,7 @@ try {
     const { BOT_TOKEN, APP_URL } = process.env;
     const bot = new Telegraf(BOT_TOKEN);
     bot.command('test', (ctx) => ctx.reply("Hello there"));
-    bot.command('/test', (ctx) => ctx.reply("Hello there 2"));
+    bot.hears('/test', (ctx) => ctx.reply("Hello there 2"));
 
 
     bot.start((ctx) => ctx.reply('Welcome 👍', {
