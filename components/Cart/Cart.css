@@ -4,3 +4,9 @@
     align-items: center;
     margin: 12px 15px 5px;
 }
+
+@media screen and (max-width : 800px) {
+    .cart__container{
+        zoom: 0.7;
+    }
+}

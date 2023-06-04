@@ -8,7 +8,7 @@ try {
     bot.start((ctx) => ctx.reply('Welcome 👍', {
       reply_markup: {
         keyboard: [[{
-            text : "web app", web_app : {
+            text : "Open Telegram Shopping", web_app : {
                 url : APP_URL
             }
         }]]

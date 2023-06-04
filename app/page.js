@@ -13,26 +13,16 @@ import Head from 'next/head'
 
 const products = getData();
 
-// const telegram = window.Telegram?.WebApp;
-
 export default function Home() {
     const [telegram, setTelegram] = useState();
     
     useLayoutEffect(() => {
         if(!telegram){
-            setTelegram(() => window.Telegram);
-           return () =>  telegram.ready();
-        } else {
-            
+            setTelegram(() => window.Telegram.webApp);
+            return () => { telegram.ready() };
         }
     },[]);
     
-    // useEffect(() => {
-    //     if()
-    // });
-    
-    
-
     const [cartItems, setcartItems] = useState([]);
 
     const onAdd = (product) => {
@@ -65,7 +55,6 @@ export default function Home() {
 
     return (
         <>
-           
             <h1 className='heading'>Order Food</h1>
             
             <Cart cartItems={cartItems} onCheckOut={onCheckOut}/>

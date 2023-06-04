@@ -25,6 +25,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    padding-top: 2rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -32,7 +33,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: revert;
 }
 .card__container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
   flex-wrap: wrap;
   justify-content: center;
 }
