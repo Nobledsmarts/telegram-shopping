@@ -2,7 +2,7 @@ import React from 'react'
 import './Cart.css'
 import Button from '@/components/Button'
 
-const Cart = ({ cartItems, onAdd, onRemove }) => {
+const Cart = ({ cartItems, onCheckOut }) => {
     const totalPrice = cartItems.reduce((initialValue, items) => initialValue + items.price * items.quantity, 0)
     return (
         <div className='cart__container'>
@@ -13,7 +13,7 @@ const Cart = ({ cartItems, onAdd, onRemove }) => {
             <span className=''>
                 Total Price : ${totalPrice.toFixed(2)}
             </span>
-            <Button title={`${cartItems.length === 0 ? 'Order !' : 'Checkout'}`}
+            <Button onClick={onCheckOut} title={`${cartItems.length === 0 ? 'Order !' : 'Checkout'}`}
                 type={'checkout'}
                 disable={cartItems.length == 0}
             />

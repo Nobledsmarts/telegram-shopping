@@ -16,12 +16,12 @@ const products = getData();
 // const telegram = window.Telegram?.WebApp;
 
 export default function Home() {
-    const [webapp, setWebApp] = useState();
+    const [telegram, setTelegram] = useState();
     
     useLayoutEffect(() => {
-        if(!webapp){
-            setWebApp(() => window.Telegram);
-           return () =>  webapp.ready();
+        if(!telegram){
+            setTelegram(() => window.Telegram);
+           return () =>  telegram.ready();
         } else {
             
         }
@@ -58,14 +58,17 @@ export default function Home() {
         }
     }
 
-    // const onCheckO
+    const onCheckOut = () => {
+        telegram.MainButton.text = "Pay :)";
+        telegram.MainButton.show()
+    }
 
     return (
         <>
            
             <h1 className='heading'>Order Food</h1>
             { JSON.stringify(webapp) }
-            <Cart cartItems={cartItems} />
+            <Cart cartItems={cartItems} onCheckOut={onCheckOut}/>
             <div className='card__container'>
                 {
                     products.map((product, id) => <Card key={id} product={product} onAdd={onAdd} onRemove={onRemove}/>)
