@@ -67,7 +67,7 @@ export default function Home() {
         <>
            
             <h1 className='heading'>Order Food</h1>
-            { JSON.stringify(webapp) }
+            
             <Cart cartItems={cartItems} onCheckOut={onCheckOut}/>
             <div className='card__container'>
                 {
