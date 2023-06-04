@@ -4,7 +4,7 @@ require('dotenv').config();
 
 try {
     const { BOT_TOKEN, APP_URL } = process.env;
-    const bot = new Telegraf(env.BOT_TOKEN);
+    const bot = new Telegraf(BOT_TOKEN);
     bot.start((ctx) => ctx.reply('Welcome 👍...', {
       reply_markup: {
         keyboard: [[{
