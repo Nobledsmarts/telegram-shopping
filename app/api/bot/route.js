@@ -40,7 +40,7 @@ export function GET(request){
     
         // process.once('SIGINT', () => bot.stop('SIGINT'));
         // process.once('SIGTERM', () => bot.stop('SIGTERM'));
-        bot.launch();
+        // bot.launch();
         // return new NextResponse();
     } catch (err){
         console.log(err);
