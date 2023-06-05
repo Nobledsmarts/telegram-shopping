@@ -40,8 +40,8 @@ export function GET(request){
     
         // process.once('SIGINT', () => bot.stop('SIGINT'));
         // process.once('SIGTERM', () => bot.stop('SIGTERM'));
-
-        return new NextResponse(bot.launch());
+        bot.launch();
+        // return new NextResponse();
     } catch (err){
         console.log(err);
         console.log('error connecting to bot: ', err.message);
