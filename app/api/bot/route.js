@@ -38,10 +38,10 @@ export function GET(request){
         // bot.hears('hi', (ctx) => ctx.reply('Hey there'));
         bot.launch();
     
-        process.once('SIGINT', () => bot.stop('SIGINT'));
-        process.once('SIGTERM', () => bot.stop('SIGTERM'));
+        // process.once('SIGINT', () => bot.stop('SIGINT'));
+        // process.once('SIGTERM', () => bot.stop('SIGTERM'));
 
-        return new NextResponse('bot connected');
+        return new NextResponse(bot.launch());
     } catch (err){
         console.log(err);
         console.log('error connecting to bot: ', err.message);
